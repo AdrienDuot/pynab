@@ -37,6 +37,9 @@
 'Service: Air Quality':
   - nabairqualityd/**
 
+'Service: Posologic':
+  - nabposologied/**
+
 'Service: Book':
   - nabbookd/**
 
