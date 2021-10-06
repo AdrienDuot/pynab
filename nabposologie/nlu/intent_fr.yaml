@@ -1,6 +1,6 @@
 ---
 type: intent
-name: nabposologied/forecast
+name: nabposologie/forecast
 utterances:
   - air
   - donne-moi la qualité de l'air

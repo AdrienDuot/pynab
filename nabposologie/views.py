@@ -5,11 +5,11 @@ from django.shortcuts import render
 from django.views.generic import TemplateView
 
 from .models import Config
-from .nabposologied import Nabposologied
+from .nabposologie import Nabposologie
 
 
 class SettingsView(TemplateView):
-    template_name = "nabposologied/settings.html"
+    template_name = "nabposologie/settings.html"
 
     def get_context_data(self, **kwargs):
         # on charge les donnees depuis la base de données
@@ -27,7 +27,7 @@ class SettingsView(TemplateView):
             visual_posologie = request.POST["visual_posologie"]
             config.visual_posologie = visual_posologie
         config.save()
-        Nabposologied.signal_daemon()
+        Nabposologie.signal_daemon()
         context = self.get_context_data(**kwargs)
         return render(request, SettingsView.template_name, context=context)
 
@@ -40,5 +40,5 @@ class SettingsView(TemplateView):
         )
         config.next_performance_type = "today"
         config.save()
-        Nabposologied.signal_daemon()
+        Nabposologie.signal_daemon()
         return JsonResponse({"status": "ok"})

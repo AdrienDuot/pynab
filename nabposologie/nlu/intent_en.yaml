@@ -1,6 +1,6 @@
 ---
 type: intent
-name: nabposologied/forecast
+name: nabposologie/forecast
 utterances:
   - give me an air quality bulletin
   - what is the air quality [date:snips/datetime](right now)

@@ -38,7 +38,7 @@
   - nabairqualityd/**
 
 'Service: Posologic':
-  - nabposologied/**
+  - nabposologie/**
 
 'Service: Book':
   - nabbookd/**

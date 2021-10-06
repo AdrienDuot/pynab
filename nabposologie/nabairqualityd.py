@@ -10,7 +10,7 @@ from nabcommon.nabservice import NabInfoCachedService
 from . import aqicn
 
 
-class Nabposologied(NabInfoCachedService):
+class Nabposologie(NabInfoCachedService):
 
     MESSAGES = ["bad", "moderate", "good"]
     ANIMATION_GOOD = (
@@ -132,7 +132,7 @@ class Nabposologied(NabInfoCachedService):
             )
         ):
             return None
-        info_animation = Nabposologied.ANIMATIONS[info_data["data"]]
+        info_animation = Nabposologie.ANIMATIONS[info_data["data"]]
         return info_animation
 
     async def perform_additional(self, expiration, type, info_data, config_t):
@@ -140,18 +140,18 @@ class Nabposologied(NabInfoCachedService):
             logging.debug("No data available")
             packet = (
                 '{"type":"message",'
-                '"signature":{"audio":["nabposologied/signature.mp3"]},'
-                '"body":[{"audio":["nabposologied/no-data-error.mp3"]}],'
+                '"signature":{"audio":["nabposologie/signature.mp3"]},'
+                '"body":[{"audio":["nabposologie/no-data-error.mp3"]}],'
                 '"expiration":"' + expiration.isoformat() + '"}\r\n'
             )
             self.writer.write(packet.encode("utf8"))
             await self.writer.drain()
         elif type == "today":
-            message = Nabposologied.MESSAGES[info_data["data"]]
+            message = Nabposologie.MESSAGES[info_data["data"]]
             packet = (
                 '{"type":"message",'
-                '"signature":{"audio":["nabposologied/signature.mp3"]},'
-                '"body":[{"audio":["nabposologied/' + message + '.mp3"]}],'
+                '"signature":{"audio":["nabposologie/signature.mp3"]},'
+                '"body":[{"audio":["nabposologie/' + message + '.mp3"]}],'
                 '"expiration":"' + expiration.isoformat() + '"}\r\n'
             )
             self.writer.write(packet.encode("utf8"))
@@ -160,7 +160,7 @@ class Nabposologied(NabInfoCachedService):
     async def process_nabd_packet(self, packet):
         if (
             packet["type"] == "asr_event"
-            and packet["nlu"]["intent"] == "nabposologied/forecast"
+            and packet["nlu"]["intent"] == "nabposologie/forecast"
         ):
             next_date, next_args, config_t = await self.get_config()
             now = datetime.datetime.now(datetime.timezone.utc)
@@ -169,4 +169,4 @@ class Nabposologied(NabInfoCachedService):
 
 
 if __name__ == "__main__":
-    Nabposologied.main(sys.argv[1:])
+    Nabposologie.main(sys.argv[1:])

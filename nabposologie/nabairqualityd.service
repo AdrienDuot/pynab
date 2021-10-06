@@ -9,9 +9,9 @@ Restart=always
 RestartSec=1
 User=root
 WorkingDirectory=/home/pi/pynab
-EnvironmentFile=/home/pi/pynab/nabposologied/nabposologied.conf
-ExecStart=/home/pi/pynab/venv/bin/python -m nabposologied.nabposologied
-PIDFile=/run/nabposologied.pid
+EnvironmentFile=/home/pi/pynab/nabposologie/nabposologie.conf
+ExecStart=/home/pi/pynab/venv/bin/python -m nabposologie.nabposologie
+PIDFile=/run/nabposologie.pid
 
 [Install]
 WantedBy=multi-user.target
