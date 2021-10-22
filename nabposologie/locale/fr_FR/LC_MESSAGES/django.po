@@ -17,114 +17,38 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: templates/nabairqualityd/animations_help.html:5
-#: templates/nabairqualityd/settings.html:6
-msgid "Air quality"
-msgstr "Qualité de l'air"
+#: templates/nabposologie/settings.html:6
+msgid "Magic 8 Ball"
+msgstr "Gourou"
 
-#: templates/nabairqualityd/animations_help.html:11
-#: templates/nabairqualityd/settings.html:9
-msgid "The air quality visual animations"
-msgstr "Les animations visuelles Qualité de l'air"
+#: templates/nabposologie/settings.html:10
+msgid "Wake up the guru"
+msgstr "Réveiller le gourou"
 
-#: templates/nabairqualityd/animations_help.html:17
-msgid "Bad"
-msgstr "Mauvaise"
+#: templates/nabposologie/settings.html:16
+msgid "To use Magic 8 Ball, think about something you want to "
+msgstr "Pour invoquer le Gourou : réflechissez à ce que vous désirez "
 
-#: templates/nabairqualityd/animations_help.html:18
-msgid "Moderate"
-msgstr "Modérée"
-
-#: templates/nabairqualityd/animations_help.html:19
-msgid "Good"
-msgstr "Bonne"
-
-#: templates/nabairqualityd/settings.html:9
-msgid "The "
-msgstr "L'"
-
-#: templates/nabairqualityd/settings.html:9
-msgid "visual animation"
-msgstr "animation visuelle"
-
-#: templates/nabairqualityd/settings.html:9
-msgid ""
-" displays air quality information based on the location selected for "
-"Weather. You can select the type of information you want : Aggregate index "
-"(AQI) or just particulate matter (PM 2.5)."
-msgstr ""
-" affiche la qualité de l'air en fonction de la localisation choisie pour la "
-"Météo. Vous pouvez sélectionner le type d'information que vous souhaitez : "
-"Indice agrégé (AQI) ou simplement les particules fines (PM 2.5)."
-
-#: templates/nabairqualityd/settings.html:10
-msgid "You can also "
-msgstr "Vous pouvez aussi "
-
-#: templates/nabairqualityd/settings.html:10
+#: templates/nabposologie/settings.html:16
 msgid "Speech recognition"
 msgstr "Reconnaissance vocale"
 
-#: templates/nabairqualityd/settings.html:10
-msgid "ask your rabbit"
+#: templates/nabposologie/settings.html:16
+msgid "ask to your rabbit"
 msgstr "demander à votre lapin"
 
-#: templates/nabairqualityd/settings.html:10
-msgid " by saying such things as <q>What is the air quality today ?</q>."
-msgstr " en disant par exemple <q>Qualité de l'air</q>."
+#: templates/nabposologie/settings.html:16
+msgid ""
+", then click and hold the button, say <q>Tell me rabbit</q> and release the "
+"button for the answer."
+msgstr ""
+", puis maintenez le bouton appuyé, dites <q>T'en penses quoi Nabaztag ?</q>, "
+"relachez et attendez la réponse."
 
-#: templates/nabairqualityd/settings.html:13
-msgid "Location"
-msgstr "Localisation"
-
-#: templates/nabairqualityd/settings.html:15
-msgid "Station location"
-msgstr "Locatisation de la station"
-
-#: templates/nabairqualityd/settings.html:20
-msgid "Index"
-msgstr "Indice"
-
-#: templates/nabairqualityd/settings.html:23
-msgid "AQI"
-msgstr "AQI"
-
-#: templates/nabairqualityd/settings.html:24
-msgid "PM 2.5"
-msgstr "PM 2.5"
-
-#: templates/nabairqualityd/settings.html:30
-msgid "Visual animation"
-msgstr "Information visuelle"
-
-#: templates/nabairqualityd/settings.html:33
-msgid "Always-on"
-msgstr "Toujours afficher"
-
-#: templates/nabairqualityd/settings.html:34
-msgid "Alert only"
-msgstr "Afficher les alertes uniquement"
-
-#: templates/nabairqualityd/settings.html:35
-msgid "No visual animation"
-msgstr "Aucune information visuelle"
-
-#: templates/nabairqualityd/settings.html:41
-msgid "Forecast"
-msgstr "Prévision"
-
-#: templates/nabairqualityd/settings.html:43
-msgid "Today"
-msgstr "Aujourd'hui"
-
-#: templates/nabairqualityd/settings.html:50
+#: templates/nabposologie/settings.html:21
 msgid "Save"
 msgstr "Enregistrer"
 
-#: templates/nabairqualityd/settings.html:51
+#: templates/nabposologie/settings.html:22
 msgid "Reset"
 msgstr "Annuler"
-
-#: templates/nabairqualityd/settings.html:81
-msgid "Unknown server error"
-msgstr "Erreur inconnue du serveur"

@@ -1,5 +1,5 @@
 [Unit]
-Description=Nabaztag Air quality daemon
+Description=Nabaztag magic 8 ball daemon
 After=nabd.service
 StartLimitIntervalSec=0
 

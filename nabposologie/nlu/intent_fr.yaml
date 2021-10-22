@@ -1,10 +1,17 @@
 ---
 type: intent
-name: nabposologie/forecast
+name: nabposologie/posologie
 utterances:
-  - air
-  - donne-moi la qualité de l'air
-  - qualité de l'air
-  - quelle est la qualité de l'air [date:snips/datetime](aujourd'hui)
-  - est-ce que je peux aller dehors ou c'est trop pollué
-  - c'est pas un peu pollué [date:snips/datetime](aujourd'hui)
+  - dis lapin
+  - dis nabaztag
+  - dis gourou
+  - dis-moi lapin
+  - dis-moi nabaztag
+  - dis-moi gourou
+  - dis gourou qu'est-ce que t'en penses
+  - et toi lapin qu'en penses-tu
+  - t'en penses quoi nabaztag
+  - à ton avis gourou est-ce que c'est une bonne idée
+  - dis lapin tu y crois ou pas
+  - à ton avis nabaztag j'y vais ou j'y vais pas
+  - dis gourou je le fais ou j'le fais pas
