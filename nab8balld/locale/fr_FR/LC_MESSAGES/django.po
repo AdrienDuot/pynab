@@ -18,8 +18,8 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: templates/nab8balld/settings.html:6
-msgid "Magic 8 Ball"
-msgstr "Gourou"
+msgid "Medications rappel"
+msgstr "rappel de medicament"
 
 #: templates/nab8balld/settings.html:10
 msgid "Wake up the guru"

@@ -3,59 +3,89 @@
   <form action="/nab8balld/settings">
     {% csrf_token %}
     <div class="card-header">
-      <h5 class="card-title">{% trans "Magic 8 Ball" %}</h5>
+      <h5 class="card-title">{% trans "Medications rappel" %}</h5>
     </div>
+
     <div class="card-body">
       <div class="form-group row">
+        <ul id='ul'>
+        </ul>
         <label for="enableBtn" class="col-6 col-form-label">{% trans "Wake up the guru" %}</label>
         <div class="col-6">
-          <button id="enableBtn" type="button" class="btn btn-toggle{% if config.enabled %} active{% endif %}" data-name="enabled" data-toggle="button" aria-pressed="false" autocomplete="off"><div class="handle"></div></button>
-          <input name="enabled" type="hidden" value="{% if config.enabled %}true{% else %}false{% endif %}" />
+          <button id="enableBtn" type="button" class="btn btn-toggle{% if config.enabled %} active{% endif %}"
+            data-name="enabled" data-toggle="button" aria-pressed="false" autocomplete="off">
+            <div class="handle"></div>
+          </button>
+          <input name="enabled" type="text" value=__input__/>
         </div>
       </div>
-      <p>{% trans "To use Magic 8 Ball, think about something you want to " %}<a class="help-link" href='/help/#asr' target='_blank' title='{% trans "Speech recognition" %}'>{% trans "ask to your rabbit" %}</a>{% blocktrans %}, then click and hold the button, say <q>Tell me rabbit</q> and release the button for the answer.{% endblocktrans %}</p>
+      <p>{% trans "To use Magic 8 Ball, think about something you want to " %}<a class="help-link" href='/help/#asr'
+          target='_blank' title='{% trans "Speech recognition" %}'>{% trans "ask to your rabbit" %}</a>{% blocktrans %},
+        then click and hold the button, say <q>Tell me rabbit</q> and release the button for the answer.{% endblocktrans   %}</p>
     </div>
+
+
     <div class="card-footer">
       <div class="row mb-2">
         <div class="col-12">
-          <button type="submit" class="btn btn-primary disabled ml-2 float-right save-button">{% trans "Save" %}</button>
-          <button type="reset" class="btn btn-outline-primary disabled ml-2 float-right reset-button">{% trans "Reset" %}</button>
+          <button type="submit" class="btn btn-primary disabled ml-2 float-right save-button">{% trans "Save"  %}</button>
+          <button type="reset" class="btn btn-outline-primary disabled ml-2 float-right reset-button">{% trans "Reset"     %}</button>
+            
         </div>
       </div>
     </div>
   </form>
   <script type="text/javascript">
-  $(function() {
-    var form = $('#nab8balld-settings form');
-    var saveBtn = form.find('button.save-button');
-    var resetBtn = form.find('button.reset-button');
-    var url = form.attr('action');
-    form.find('button.btn-toggle').on('click', function() {
-      saveBtn.removeClass('disabled');
-      resetBtn.removeClass('disabled');
-    });
-    form.find('input').on('change', function() {
-      saveBtn.removeClass('disabled');
-      resetBtn.removeClass('disabled');
-    });
-    form.on('submit', function() {
-      form.find("input[name='enabled']").val(form.find('button.btn-toggle').hasClass('active'));
-      var formdata = form.serialize();
-      $.ajax({
-        url: url,
-        method: "POST",
-        data: formdata,
-        success: function (data) {
+    $(function () {
+      var alarm = [{ title: 'title1', date: Date.now() }, { title: 'title2', date: Date.now() }]
+      
+      const ul = document.getElementById('ul')
+      alarm.forEach(item => {
+        var li = document.createElement("li");
+        li.innerText = item.title
+        ul.appendChild(li)
+      })
+      var __input__ = 'enter'
+      var form = $('#nab8balld-settings form');
+      var saveBtn = form.find('button.save-button');
+      var resetBtn = form.find('button.reset-button');
+      var url = form.attr('action');
+      form.find('button.btn-toggle').on('click', function () {
+        $.ajax({
+          url: url,
+          method: "POST",
+          data: formdata,
+          success: function (data) {
+            $("#nab8balld-settings").replaceWith(data);
+          }
+        });
+        saveBtn.removeClass('disabled');
+        resetBtn.removeClass('disabled');
+      });
+      form.find('input').on('change', function () {
+        saveBtn.removeClass('disabled');
+        resetBtn.removeClass('disabled');
+      });
+      form.on('submit', function () {
+        form.find("input[name='enabled']").val(form.find('button.btn-toggle').hasClass('active'));
+        var formdata = form.serialize();
+        console.log
+        $.ajax({
+          url: url,
+          method: "POST",
+          data: formdata,
+          success: function (data) {
+            console.log(data)
+            $("#nab8balld-settings").replaceWith(data);
+          }
+        });
+        return false;
+      });
+      resetBtn.on("click", function () {
+        $.get(url, function (data) {
           $("#nab8balld-settings").replaceWith(data);
-        }
-      });
-      return false;
-    });
-    resetBtn.on("click", function() {
-      $.get(url, function(data) {
-        $("#nab8balld-settings").replaceWith(data);
+        });
       });
     });
-  });
   </script>
 </div>

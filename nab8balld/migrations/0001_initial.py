@@ -11,7 +11,7 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.CreateModel(
-            name="Config",
+            name="alarm",
             fields=[
                 (
                     "id",
@@ -22,7 +22,8 @@ class Migration(migrations.Migration):
                         verbose_name="ID",
                     ),
                 ),
-                ("enabled", models.BooleanField(default=True)),
+                ("title", models.CharField(max_length=50)),
+                ("date", models.DateField()),
             ],
         ),
     ]
