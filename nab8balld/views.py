@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views.generic import TemplateView
 import datetime
 
-from .models import alarm
+from .models import config
 from .nab8balld import Nab8Balld
 
 
@@ -11,14 +11,14 @@ class SettingsView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["alarm"] = alarm.objects.all()
+        context["config"] = config.objects.all()
         return context
 
     def post(self, request, *args, **kwargs):
-        alarm = alarm.load()
-        alarm.objects.create(title=request.POST["title"], date=request.POST["date"])
-        alarm.save()
+        config = config.load()
+        config.objects.create(title=request.POST["title"], date=request.POST["date"])
+        config.save()
         Nab8Balld.signal_daemon()
         context = super().get_context_data(**kwargs)
-        context["alarm"] = alarm
+        context["config"] = config
         return render(request, SettingsView.template_name, context=context)
